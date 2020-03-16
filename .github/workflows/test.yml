@@ -20,6 +20,7 @@ jobs:
         uses: jonabc/licensed-ci@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ steps.licensed.outputs }}
       - uses: actions/github-script@0.2.0
         # if: always() && steps.licensed.outputs.pr_number
         with:
