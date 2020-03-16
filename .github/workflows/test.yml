@@ -21,13 +21,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - run: echo context.payload.pull_request.number
-      - uses: actions/github-script@0.2.0
-        if: always() && steps.licensed.outputs.pr_number
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.issues.createComment({
-              ...context.repo,
-              issue_number: context.payload.pull_request.number
-              body: 'My custom PR message'
-            })
+      - run: |
+          jq -nc '{"body": "test comment"}' | \
+          curl -sL  -X POST -d @- \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/comments
