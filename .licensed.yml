@@ -27,6 +27,7 @@ sources:
 # to succeed.
 allowed:
   - mit
+  - apache-2.0
   - bsd-2-clause
   - bsd-3-clause
   - cc0-1.0
@@ -56,10 +57,11 @@ allowed:
 # They will be cached and checked, but will not raise errors or warnings for a
 # non-allowed license.  Dependencies on this list will still raise errors if
 # license text cannot be found for the dependency.
-reviewed:
-  bundler:
-    - bcrypt-ruby
 
-  bower:
-  - classlist # public domain
-  - octicons
+# reviewed:
+#   bundler:
+#     - bcrypt-ruby
+
+#   bower:
+#   - classlist # public domain
+#   - octicons
