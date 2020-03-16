@@ -20,7 +20,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/github-script@0.2.0
-        if: always() && steps.licensed.outputs.pr_number
+        # if: always() && steps.licensed.outputs.pr_number
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
