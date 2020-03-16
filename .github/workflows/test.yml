@@ -20,8 +20,7 @@ jobs:
         id: licensed
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo ${{ steps.licensed.outputs.user_branch }}
-      - run: echo ${{ steps.licensed.outputs.pr_url }}
+      - run: echo context.payload.pull_request.number
       - uses: actions/github-script@0.2.0
         if: always() && steps.licensed.outputs.pr_number
         with:
@@ -29,6 +28,6 @@ jobs:
           script: |
             github.issues.createComment({
               ...context.repo,
-              issue_number: ${{ steps.licensed.outputs.pr_number }}
+              issue_number: context.payload.pull_request.number
               body: 'My custom PR message'
             })
