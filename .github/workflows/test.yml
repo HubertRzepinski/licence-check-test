@@ -20,7 +20,7 @@ jobs:
         uses: jonabc/licensed-ci@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ context }}
       - uses: actions/github-script@0.2.0
         # if: always() && steps.licensed.outputs.pr_number
         with:
@@ -28,6 +28,6 @@ jobs:
           script: |
             github.issues.createComment({
               ...context.repo,
-              issue_number: context.issue.number,
+              issue_number: , ${{ context.issue.number }}
               body: 'My custom PR message'
             })
