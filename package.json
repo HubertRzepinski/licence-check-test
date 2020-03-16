@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/HubertRzepinski/licence-check-test/issues"
   },
-  "homepage": "https://github.com/HubertRzepinski/licence-check-test#readme"
+  "homepage": "https://github.com/HubertRzepinski/licence-check-test#readme",
+  "dependencies": {
+    "jslicense-bsd-3-clause": "^0.1.3"
+  }
 }
