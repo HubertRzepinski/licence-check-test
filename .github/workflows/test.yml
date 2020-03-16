@@ -16,12 +16,11 @@ jobs:
         with:
           version: 2.x
       - run: npm install # install your projects dependencies in local environment
+      - name: License Checker
       - uses: jonabc/licensed-ci@v1
         id: licensed
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo context.payload.pull_request.number
-      - name: Create commit comment
         uses: peter-evans/commit-comment@v1.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
