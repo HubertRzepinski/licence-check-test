@@ -22,3 +22,5 @@ jobs:
       - run: npm install # install your projects dependencies in local environment
       - id: licensed
         uses: jonabc/licensed-ci@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
