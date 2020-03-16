@@ -18,13 +18,13 @@ jobs:
       - run: npm install # install your projects dependencies in local environment
       - name: License Checker
         uses: jonabc/licensed-ci@v1
-          id: licensed
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+        id: licensed
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
         uses: peter-evans/commit-comment@v1.0.1
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            body: |
-              This is a multi-line test comment
-              - With GitHub **Markdown**
-              - Created by [commit-comment][1]
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown**
+            - Created by [commit-comment][1]
