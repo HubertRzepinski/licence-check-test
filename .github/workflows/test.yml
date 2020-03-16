@@ -21,10 +21,10 @@ jobs:
         id: licensed
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Post message if check failed
+        if: failure()
         uses: peter-evans/commit-comment@v1.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown**
-            - Created by [commit-comment][1]
+            - \**License check failed. See action details for more info**
